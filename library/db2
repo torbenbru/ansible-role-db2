@@ -59,7 +59,7 @@ class Database:
         self.instance = self.module.params['instance']
         self.automatic = self.module.params['automatic']
         self.path = self.module.params['path']
-	self.alias = self.module.params['alias']
+	 self.alias = self.module.params['alias']
         self.pagesize = self.module.params['pagesize']
         self.codeset = self.module.params['codeset']
         self.territory = self.module.params['territory']
