@@ -5,7 +5,7 @@
       instance: "{{item.instance}}"
       path: "{{item.path | default()}}"
       automatic: "{{item.automatic | default('YES')}}"
-	  alias: "{{item.alias | default()}}"
+      alias: "{{item.alias | default()}}"
       pagesize: "{{item.pagesize | default()}}"
       codeset: "{{item.codeset | default()}}"
       territory: "{{item.territory | default()}}"
