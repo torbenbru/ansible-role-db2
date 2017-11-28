@@ -59,6 +59,7 @@ class Database:
         self.instance = self.module.params['instance']
         self.automatic = self.module.params['automatic']
         self.path = self.module.params['path']
+		self.alias = self.module.params['alias']
         self.pagesize = self.module.params['pagesize']
         self.codeset = self.module.params['codeset']
         self.territory = self.module.params['territory']
@@ -71,6 +72,7 @@ def main():
             name=dict(required=True, type='str'),
             automatic=dict(required=False, default=True, type='bool'),
             path=dict(required=False, default=None, type='str'),
+			alias=dict(required=False, default=None, type='str'),
             pagesize=dict(required=False, default=None, type='str'),
             codeset=dict(required=False, default=None, type='str'),
             territory=dict(required=False, default=None, type='str'),
@@ -95,6 +97,8 @@ def main():
         options += " automatic storage no"
     if db.path:
         options += " on %s" % db.path
+	if db.alias:
+		options += "alias %s " % db.alias
 
         # Validate if automatic_storage == no then only one path can be used
         if not db.automatic:
