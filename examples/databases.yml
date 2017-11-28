@@ -20,7 +20,7 @@
          - name: otherdb
            instance: db2inst1
            automatic: "no"
-	   alias: other
+	    alias: other
 
          # codeset and territory must be used together
          # All possible customizations
