@@ -98,7 +98,7 @@ def main():
     if db.path:
         options += " on %s" % db.path
     if db.alias:
-	options += "alias %s " % db.alias
+		options += "alias %s " % db.alias
 
         # Validate if automatic_storage == no then only one path can be used
         if not db.automatic:
