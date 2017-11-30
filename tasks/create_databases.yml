@@ -4,6 +4,7 @@
       name: "{{item.name}}"
       instance: "{{item.instance}}"
       path: "{{item.path | default()}}"
+      alias: "{{item.alias | default()}}"
       automatic: "{{item.automatic | default('YES')}}"
       pagesize: "{{item.pagesize | default()}}"
       codeset: "{{item.codeset | default()}}"

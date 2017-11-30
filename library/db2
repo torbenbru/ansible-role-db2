@@ -37,7 +37,7 @@ class Database:
 
         if stderr:
             self.module.fail_json(changed=False, msg=stderr)
-        
+
         for db in stdout.strip().split('\n'):
             if db == self.db_name.upper():
                 return True
@@ -58,6 +58,7 @@ class Database:
         self.db_name = self.module.params['name']
         self.instance = self.module.params['instance']
         self.automatic = self.module.params['automatic']
+        self.alias = self.module.params['alias']
         self.path = self.module.params['path']
         self.pagesize = self.module.params['pagesize']
         self.codeset = self.module.params['codeset']
@@ -70,6 +71,7 @@ def main():
             instance=dict(required=True, type='str'),
             name=dict(required=True, type='str'),
             automatic=dict(required=False, default=True, type='bool'),
+            alias=dict(required=False,default=True, type='str'),
             path=dict(required=False, default=None, type='str'),
             pagesize=dict(required=False, default=None, type='str'),
             codeset=dict(required=False, default=None, type='str'),
@@ -95,6 +97,8 @@ def main():
         options += " automatic storage no"
     if db.path:
         options += " on %s" % db.path
+    if db.alias:
+        options += "alias %s " db.alias
 
         # Validate if automatic_storage == no then only one path can be used
         if not db.automatic:
